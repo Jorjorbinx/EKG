@@ -1,0 +1,149 @@
+Materials
+- Product Information
+
+     - Electrode pads
+https://www.sparkfun.com/products/12969?_ga=1.121786827.1315614732.1441313156
+
+- Board Schematic
+
+- Hook-up Guide
+
+Objectives for Week 2 (9/6-9/12)
+[x] Interview cardiologist
+[x] Purchase Sparkfun’s kit ($70.15)
+
+Objectives for Week 3 (9/13-9/19)
+[x] Determine if bluetooth integration + independent power source is viable
+What can we use to connect bluetooth to the iPhone?
+The Adafruit Bluetooth LE Connect app for iOS
+https://learn.adafruit.com/bluefruit-le-connect-for-ios/settings
+
+What bluetooth shield can be used with the iPhone?
+- http://www.adafruit.com/product/2479 (Javier Recommended that I get this one. Purchased it already. $28.15)
+
+- http://www.adafruit.com/product/1697
+- http://www.adafruit.com/product/2633
+
+As for the power source, Javier suggested that we can utilize a keychain charger. We need to convert the voltage from 5V (standard for USB 3.0) to 3.3V.
+Key Charger + USB Cable ($19.49)
+
+Step-down Regulator (5 to 3.3V; $4.00)
+
+[x] Javier mentioned it might be a good idea to buy an extra EKG IC and some more electrodes ($40.07)
+
+[x] Build EKG
+
+Objectives for Week 4 (9/20-9/26)
+[x] Get working EKG signals on the computer
+Arduino software is for the Arduino hardware
+Processing software is for front-end computer interface
+3.3V forces one to go to 8MHz (how fast the processor is)
+
+Notes: Most likely a problem with lead placement. Determine optimal places for lead placement.
+
+https://plot.ly/~hlui112358/13/ekg-rhythm-test1-09-18-15/?share_key=bWpH6c1RP83ywUwkSWT9pU
+[ ] Organize hardware in layout format
+
+[x] Write out features have in mind (device and application):
+- Real-time analysis + visualization of heart rhythm on iPhone
+- Compare w/ Apple Watch HR
+- Sync w/ Apple Watch/iPhone
+     - Pace
+     - Pedometer
+     - GPS
+- Sync w/ Google Calendar
+- Rhythm analysis/HR during sleep (in medical students)
+     - other sensors: BP
+
+[ ] Determine optimal lead placements
+[ ] Determine how long we can keep the leads on!
+          - Do they stick on the body for long enough?
+          - Do they cause an allergic reaction if they’re kept on for too long?
+          - Do they get uncomfortable?
+          - Can we take a shower and reuse the leads?
+          - Should we look for special ones that are built to stay on the body for a while?
+[ ] Come up with 3 main “real-life” goals for the project
+     -> “Study the heart characteristics of medical students throughout the day"
+     -> “Study the heart characteristics of individuals and compare to sleeping patterns"
+
+NOTES (9/24/15)
+- We tried placing the leads in different positions and looked at the different curves we obtained. From a trial-an-error approach, we deduced that the black (top right) and blue (top left) leads need to be right underneath the right and left clavicles, far away from each other. The red (bottom right) gives the best results when it is placed ~1 inch underneath the right nipple.
+- We get a lot of noise when the red lead is place lower, near the right floating ribs.
+- Inverting the leads (putting the black on the left side, blue on the right side, and red on the left side) results in an inverted graph for some reason. We’re not sure why.
+- When the black and blue leads are placed further apart from each other, the QRS gets bigger (possibly better)
+
+http://quantifiedself.com/2015/09/qs-access-see-healthkit-data-table/
+
+Objectives for Week 5 (9/27-10/3)
+[ ] Organize software in layout format
+[ ] What are the behaviors? (i.e. know rate at which data is being generated and sent. This can be a limiting factor. How fast can the data be streamed kb/sec)
+- How would I go about doing that?
+- How much do you shift graphs by and how do you calibrate it?
+- Lag time between physical exertion and heart-rate changes?
+- Time off the apple watch
+
+Objectives for Week 7 (10/4-10/10)
+(Pre-TJ week, might be difficult to get anything done)
+
+Objectives for Week 7 (10/11-10/17)
+TJ week!
+[x] Integrate bluetooth and portable power source + test on laptop
+-> Javier was really helpful, but we still need to figure out how to send data back to the arduino
+
+Objectives for week 8 (10/18-10/24)
+[ ] figure out how to send signal back to the bluetooth system (right now it’s only one way)
+[ ] Figure out how to get data onto iPhone + graph real-time
+
+JR comments:
+   -  http://stackoverflow.com/questions/2399836/real-time-plotting-on-iphone-using-core-plot
+   -  core-plot files: https://code.google.com/p/core-plot/downloads/list
+I’m learning core-plot, seems to be the best way to do this.
+   -  http://blog.alwold.com/2014/08/07/using-coreplot-with-swift-in-ios/
+          - need to get https://github.com/CocoaPods/CocoaPods-app/releases
+
+
+
+Open Questions
+[ ] What makes this specific (Integrated Circuit) IC ideal for ECGs?
+[ ] What can potentially interfere with EKG measurement?
+- muscle activity can be a big factor
+- internal interference from design components
+- we can use an oscilloscope to measure the interference (How does this work?)
+[ ] How do we perform real-time analysis?
+- we can use tools that were developed for the iPhone
+- visualization is “easy"! - Javier
+[ ] What type of data are we dealing with?
+- metadata
+when/ timestamps
+from whom
+what was happening during collection
+what version of software was I running?
+how were you storing data
+- EKG data
+- Apple Watch data (How do we access this?)
+[ ] How do we manage data?
+- database vs csv
+database: sqllite; step u form csv; great for tables; operations (max + mins);
+csv: representation of the raw data (malleable)
+
+How much of a difference is there between measuring CSV (for EKG) and the timestamps from Apple Watch? limiting factor??
+
+[ ] Determine if Apple Watch can grant access to “pace” data during running. How frequent is Apple Watch’s data collection for pace?
+[ ] Do we need a data logger clock for EKG?
+[ ] Find more economical source for leads (make sure they are compatible with our system)
+
+https://www.manylabs.org
+https://www.getqardio.com/qardiocore-wearable-ecg-ekg-monitor-iphone/
+https://www.health-eheartstudy.org/technology
+https://forum.quantifiedself.com/thread-resting-heart-rate-tracking
+http://quantifiedself.com/2015/09/qseu15-preview-share-data/
+
+
+
+
+
+
+
+
+
+
